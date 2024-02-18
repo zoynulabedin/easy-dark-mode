@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "8d39f67e20052c3cc48dc76f2b5931f8"
+name = "easy-dark-mode"
+application_url = "https://wayne-paragraphs-corrected-remarkable.trycloudflare.com"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "ostaddev.myshopify.com"
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_products,write_products"
+
+[auth]
+redirect_urls = [
+  "https://wayne-paragraphs-corrected-remarkable.trycloudflare.com/auth/callback",
+  "https://wayne-paragraphs-corrected-remarkable.trycloudflare.com/auth/shopify/callback",
+  "https://wayne-paragraphs-corrected-remarkable.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
