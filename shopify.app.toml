@@ -2,7 +2,7 @@
 
 client_id = "8d39f67e20052c3cc48dc76f2b5931f8"
 name = "easy-dark-mode"
-application_url = "https://wayne-paragraphs-corrected-remarkable.trycloudflare.com"
+application_url = "https://bryant-cornell-bugs-patch.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://wayne-paragraphs-corrected-remarkable.trycloudflare.com/auth/callback",
-  "https://wayne-paragraphs-corrected-remarkable.trycloudflare.com/auth/shopify/callback",
-  "https://wayne-paragraphs-corrected-remarkable.trycloudflare.com/api/auth/callback"
+  "https://bryant-cornell-bugs-patch.trycloudflare.com/auth/callback",
+  "https://bryant-cornell-bugs-patch.trycloudflare.com/auth/shopify/callback",
+  "https://bryant-cornell-bugs-patch.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
