@@ -7,42 +7,30 @@ import { authenticate } from "~/shopify.server";
 import {
   Createdarkmode,
   Getdarkmode,
-  GetdarkmodeById,
   Updatedarkmode,
 } from "~/utlis/darkmode.server";
-type DarkmodeItem = {
-  id: number;
-  userId: string | null;
-  enable: boolean;
-  bgcolor: string | null;
-  textcolor: string | null;
-};
+
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const { session, admin } = await authenticate.admin(request);
-
-  if (!session || !admin) {
-    throw new Response("not authenticated", { status: 401 });
-  }
-  const data = await Getdarkmode();
-  return json(data);
-};
-
-export const action = async ({ request }: ActionFunctionArgs) => {
   const { session } = await authenticate.public.appProxy(request);
 
   if (session) {
-    console.log("session", session);
-    const formData = await request.formData();
-    const userid = String(session?.id || "");
-    const bgcolor = String(formData.get("bgcolor") || "#000000");
-    const textColor = String(formData.get("textcolor") || "#ffffff");
-    const enable = Boolean(formData.get("enable") || false);
-    if (request.method === "POST") {
-      return await Createdarkmode(userid, enable, bgcolor, textColor);
-    }
-    if (request.method === "PUT") {
-      return await Updatedarkmode(userid, enable, bgcolor, textColor);
-    }
+    const data = await Getdarkmode();
+    return json(data);
+  }
+};
+
+export const action = async ({ request }: ActionFunctionArgs) => {
+  const { session } = await authenticate.admin(request);
+  const formData = await request.formData();
+  const userid = String(session?.id || "");
+  const bgcolor = String(formData.get("bgcolor") || "#000000");
+  const textColor = String(formData.get("textcolor") || "#ffffff");
+  const enable = Boolean(formData.get("enable") || false);
+  if (request.method === "POST") {
+    return await Createdarkmode(userid, enable, bgcolor, textColor);
+  }
+  if (request.method === "PUT") {
+    return await Updatedarkmode(userid, enable, bgcolor, textColor);
   }
 
   return json({
@@ -91,7 +79,7 @@ const Darkmode = () => {
                   <input
                     type="color"
                     onChange={handleInputchange}
-                    value={input.bgcolor}
+                    value={input.bgcolor ?? ""}
                     name="bgcolor"
                   />
                 </div>
@@ -100,7 +88,7 @@ const Darkmode = () => {
                   <input
                     type="color"
                     onChange={handleInputchange}
-                    value={input.textcolor}
+                    value={input.textcolor ?? ""}
                     name="textcolor"
                   />
                 </div>
@@ -113,9 +101,9 @@ const Darkmode = () => {
         </Layout.Section>
         <Layout.Section variant="oneHalf">
           <Card>
-            <div style={{ backgroundColor: input.bgcolor }}>
+            <div style={{ backgroundColor: input.bgcolor ?? "" }}>
               <h1
-                style={{ color: input.textcolor }}
+                style={{ color: input.textcolor ?? "" }}
                 className=" text-center text-2xl"
               >
                 Hello
