@@ -15,7 +15,7 @@ function Extension() {
   const { extension } = useApi();
 
   return (
-    <Banner title="checkout-ui">
+    <Banner title="easy-ui">
       {translate('welcome', {target: extension.target})}
     </Banner>
   );

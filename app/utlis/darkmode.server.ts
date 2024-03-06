@@ -13,7 +13,6 @@ export async function Createdarkmode(
     },
   });
 }
-
 export async function Getdarkmode() {
   return prisma.darkmode.findMany();
 }

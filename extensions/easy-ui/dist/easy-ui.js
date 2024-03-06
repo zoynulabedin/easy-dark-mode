@@ -19498,7 +19498,7 @@ ${errorInfo.componentStack}`);
     return translate;
   }
 
-  // extensions/checkout-ui/src/Checkout.tsx
+  // extensions/easy-ui/src/Checkout.tsx
   var import_jsx_runtime4 = __toESM(require_jsx_runtime());
   var Checkout_default = reactExtension(
     "purchase.checkout.block.render",
@@ -19507,7 +19507,7 @@ ${errorInfo.componentStack}`);
   function Extension() {
     const translate = useTranslate();
     const { extension: extension2 } = useApi();
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Banner2, { title: "checkout-ui", children: translate("welcome", { target: extension2.target }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Banner2, { title: "easy-ui", children: translate("welcome", { target: extension2.target }) });
   }
 })();
-//# sourceMappingURL=checkout-ui.js.map
+//# sourceMappingURL=easy-ui.js.map

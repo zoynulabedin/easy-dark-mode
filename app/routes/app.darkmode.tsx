@@ -28,17 +28,21 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 };
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const { session } = await authenticate.admin(request);
-  const formData = await request.formData();
-  const userid = String(session?.id || "");
-  const bgcolor = String(formData.get("bgcolor") || "#000000");
-  const textColor = String(formData.get("textcolor") || "#ffffff");
-  const enable = Boolean(formData.get("enable") || false);
-  if (request.method === "POST") {
-    return await Createdarkmode(userid, enable, bgcolor, textColor);
-  }
-  if (request.method === "PUT") {
-    return await Updatedarkmode(userid, enable, bgcolor, textColor);
+  const { session } = await authenticate.public.appProxy(request);
+
+  if (session) {
+    console.log("session", session);
+    const formData = await request.formData();
+    const userid = String(session?.id || "");
+    const bgcolor = String(formData.get("bgcolor") || "#000000");
+    const textColor = String(formData.get("textcolor") || "#ffffff");
+    const enable = Boolean(formData.get("enable") || false);
+    if (request.method === "POST") {
+      return await Createdarkmode(userid, enable, bgcolor, textColor);
+    }
+    if (request.method === "PUT") {
+      return await Updatedarkmode(userid, enable, bgcolor, textColor);
+    }
   }
 
   return json({

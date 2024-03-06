@@ -2,7 +2,7 @@
 
 client_id = "8d39f67e20052c3cc48dc76f2b5931f8"
 name = "easy-dark-mode"
-application_url = "https://bryant-cornell-bugs-patch.trycloudflare.com"
+application_url = "https://movers-pool-item-licking.trycloudflare.com"
 embedded = true
 
 [build]
@@ -16,9 +16,9 @@ scopes = "read_products,write_products"
 
 [auth]
 redirect_urls = [
-  "https://bryant-cornell-bugs-patch.trycloudflare.com/auth/callback",
-  "https://bryant-cornell-bugs-patch.trycloudflare.com/auth/shopify/callback",
-  "https://bryant-cornell-bugs-patch.trycloudflare.com/api/auth/callback"
+  "https://movers-pool-item-licking.trycloudflare.com/auth/callback",
+  "https://movers-pool-item-licking.trycloudflare.com/auth/shopify/callback",
+  "https://movers-pool-item-licking.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
